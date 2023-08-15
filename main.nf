@@ -1171,7 +1171,7 @@ process krona_plot {
 }
 
 process download_db {
-  conda (params.enable_conda ? "$projectDir/env/qiime2-2023.2-py38-linux-conda.yml" : null)
+  conda (params.enable_conda ? "$projectDir/env/qiime2-2023.2-py38-osx-conda.yml" : null)
   container "kpinpb/pb-16s-nf-qiime:v0.7"
   publishDir "$projectDir/databases", mode: "copy"
   label 'cpu_def'
