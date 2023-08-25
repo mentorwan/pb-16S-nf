@@ -1272,21 +1272,21 @@ workflow pb16S {
     if (params.run_picrust2){
       picrust2(filter_dada2.out.asv_seq_fasta, export_biom.out.biom_vsearch)
     }
-    if (params.skip_primer_trim){
-      html_rep_skip_cutadapt(nb_tax, metadata_file, merge_sample_manifest.out.merged_samplefile,
-          dada2_qc.out.dada2_qc_tsv, 
-          collect_QC_readstats, collect_QC_summarised_sample_stats,
-          cutadapt_summary, class_tax.out.tax_freq_tab_tsv, qiime2_phylogeny_diversity.out.bray_mat,
-          qiime2_phylogeny_diversity.out.unifrac_mat, qiime2_phylogeny_diversity.out.wunifrac_mat,
-          params.colorby, post_trim_readstats, params.rmd_vis_biom_script, params.rmd_helper)
-    } else {
-      html_rep(nb_tax, metadata_file,  merge_sample_manifest.out.merged_samplefile,
-          dada2_qc.out.dada2_qc_tsv, 
-          collect_QC_readstats, collect_QC_summarised_sample_stats,
-          cutadapt_summary, class_tax.out.tax_freq_tab_tsv, qiime2_phylogeny_diversity.out.bray_mat,
-          qiime2_phylogeny_diversity.out.unifrac_mat, qiime2_phylogeny_diversity.out.wunifrac_mat,
-          params.colorby, post_trim_readstats, params.rmd_vis_biom_script, params.rmd_helper )
-    }
+    //if (params.skip_primer_trim){
+    //  html_rep_skip_cutadapt(nb_tax, metadata_file, merge_sample_manifest.out.merged_samplefile,
+    //      dada2_qc.out.dada2_qc_tsv, 
+    //      collect_QC_readstats, collect_QC_summarised_sample_stats,
+    //      cutadapt_summary, class_tax.out.tax_freq_tab_tsv, qiime2_phylogeny_diversity.out.bray_mat,
+    //      qiime2_phylogeny_diversity.out.unifrac_mat, qiime2_phylogeny_diversity.out.wunifrac_mat,
+    //      params.colorby, post_trim_readstats, params.rmd_vis_biom_script, params.rmd_helper)
+    //} else {
+    //  html_rep(nb_tax, metadata_file,  merge_sample_manifest.out.merged_samplefile,
+    //      dada2_qc.out.dada2_qc_tsv, 
+    //      collect_QC_readstats, collect_QC_summarised_sample_stats,
+    //      cutadapt_summary, class_tax.out.tax_freq_tab_tsv, qiime2_phylogeny_diversity.out.bray_mat,
+    //      qiime2_phylogeny_diversity.out.unifrac_mat, qiime2_phylogeny_diversity.out.wunifrac_mat,
+    //      params.colorby, post_trim_readstats, params.rmd_vis_biom_script, params.rmd_helper )
+    //}
     krona_plot(filter_dada2.out.asv_freq, class_tax.out.tax_vsearch)
   }
 }
